@@ -1,0 +1,11 @@
+# Exclude PDFs and unnecessary files
+*.pdf
+*.md
+*.sh
+*.png
+randomdetailsaboutme.txt
+
+# Exclude the PDF-optimized resume version
+connor_smith_resume_final.html
+
+# Keep only index.html and JPEG images needed for the website

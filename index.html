@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connor Smith - AI-Driven Developer & Content Creator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background: #0a0a0a;
+            background-image: 
+                radial-gradient(circle at 25% 25%, rgba(0, 255, 136, 0.1) 0%, transparent 25%),
+                radial-gradient(circle at 75% 75%, rgba(0, 102, 255, 0.1) 0%, transparent 25%),
+                linear-gradient(135deg, #111111 0%, #1a1a1a 50%, #0f0f0f 100%);
+            color: #ffffff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Header/Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(0, 255, 136, 0.2);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-family: 'Orbitron', monospace;
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #00ff88 0%, #ffffff 50%, #0066ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: #00ff88;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: linear-gradient(90deg, #00ff88, #0066ff);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            background: linear-gradient(135deg, rgba(0, 255, 136, 0.1) 0%, rgba(0, 102, 255, 0.1) 100%);
+        }
+
+        .hero-content {
+            max-width: 800px;
+            z-index: 2;
+        }
+
+        .hero-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            margin: 0 auto 2rem;
+            background: linear-gradient(135deg, #00ff88 0%, #0066ff 100%);
+            padding: 5px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: center 35%;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .hero h1 {
+            font-family: 'Orbitron', monospace;
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #00ff88 0%, #ffffff 50%, #0066ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: slideInUp 1s ease-out;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: #b8b8b8;
+            margin-bottom: 2rem;
+            animation: slideInUp 1s ease-out 0.2s both;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            color: #d0d0d0;
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            animation: slideInUp 1s ease-out 0.4s both;
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: slideInUp 1s ease-out 0.6s both;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 30px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #00ff88 0%, #0066ff 100%);
+            color: #ffffff;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #00ff88;
+            border: 2px solid #00ff88;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 255, 136, 0.3);
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 5rem 0;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-left: 2rem;
+            padding-right: 2rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #00ff88, #0066ff);
+            border-radius: 2px;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .skill-category {
+            background: rgba(20, 20, 20, 0.6);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(0, 255, 136, 0.1);
+            border-top: 3px solid #00ff88;
+        }
+
+        .skill-category h3 {
+            color: #00ff88;
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+        }
+
+        .skill-item {
+            margin-bottom: 1rem;
+        }
+
+        .skill-name {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .skill-bar {
+            height: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(90deg, #00ff88 0%, #0066ff 100%);
+            border-radius: 4px;
+            transition: width 2s ease-out;
+        }
+
+        /* Experience Section */
+        .experience-timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .experience-timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, #00ff88, #0066ff);
+        }
+
+        .experience-item {
+            position: relative;
+            background: rgba(20, 20, 20, 0.6);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(0, 255, 136, 0.1);
+            border-left: 4px solid #00ff88;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .experience-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 30px rgba(0, 255, 136, 0.2);
+        }
+
+        .experience-item::before {
+            content: '';
+            position: absolute;
+            left: -2.5rem;
+            top: 2rem;
+            width: 12px;
+            height: 12px;
+            background: #00ff88;
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
+        }
+
+        .job-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 0.5rem;
+        }
+
+        .company {
+            font-size: 1.1rem;
+            color: #00ff88;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .date-location {
+            color: #a0a0a0;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .job-description ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .job-description li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+            color: #d0d0d0;
+        }
+
+        .job-description li::before {
+            content: '▶';
+            position: absolute;
+            left: 0;
+            color: #00ff88;
+            font-size: 0.8rem;
+        }
+
+        /* Achievements Grid */
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .achievement-card {
+            background: linear-gradient(135deg, rgba(0, 255, 136, 0.08) 0%, rgba(0, 102, 255, 0.06) 100%);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(0, 255, 136, 0.15);
+            text-align: center;
+            border-top: 4px solid #00ff88;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .achievement-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 255, 136, 0.2);
+        }
+
+        .achievement-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .achievement-title {
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .achievement-desc {
+            color: #c0c0c0;
+            line-height: 1.6;
+        }
+
+        /* Photo Gallery */
+        .photo-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .photo-item {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            aspect-ratio: 16/10;
+            border: 2px solid rgba(0, 255, 136, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .photo-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 35px rgba(0, 255, 136, 0.3);
+        }
+
+        .photo-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Contact Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            padding: 1.5rem;
+            background: rgba(0, 255, 136, 0.05);
+            border-radius: 15px;
+            border: 1px solid rgba(0, 255, 136, 0.1);
+            transition: all 0.3s ease;
+            overflow: hidden;
+            word-wrap: break-word;
+        }
+
+        .contact-item:hover {
+            background: rgba(0, 255, 136, 0.1);
+            transform: translateY(-5px);
+        }
+
+        .contact-icon {
+            width: 24px;
+            height: 24px;
+            margin-right: 1rem;
+            color: #00ff88;
+            flex-shrink: 0;
+        }
+
+        .contact-item div {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .contact-item a {
+            word-break: break-all;
+            display: inline-block;
+            max-width: 100%;
+        }
+
+        /* Footer */
+        .footer {
+            background: rgba(10, 10, 10, 0.95);
+            text-align: center;
+            padding: 2rem 0;
+            border-top: 1px solid rgba(0, 255, 136, 0.2);
+            margin-top: 5rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+
+            .section {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .experience-timeline {
+                padding-left: 1rem;
+            }
+        }
+
+        /* Scroll animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">Connor Smith</div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#experience" class="nav-link">Experience</a></li>
+                <li><a href="#achievements" class="nav-link">Achievements</a></li>
+                <li><a href="#gallery" class="nav-link">Gallery</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="hero-image">
+                <img src="1.jpeg" alt="Connor Smith">
+            </div>
+            <h1>Connor Smith</h1>
+            <p class="hero-subtitle">AI-Driven Developer & Content Creator, Educator & Web3 Visionary</p>
+            <p class="hero-description">
+                Dynamic professional with 6+ years of global education experience and proven track record in AI-driven content creation. 
+                Currently managing social media and developing marketing automation tools while pursuing Buddhist Studies. 
+                Expert in community building, cross-cultural communication, and emerging technologies.
+            </p>
+            <div class="cta-buttons">
+                <a href="#contact" class="btn btn-primary">Get In Touch</a>
+                <a href="#experience" class="btn btn-secondary">View My Work</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section fade-in">
+        <h2 class="section-title">About Me</h2>
+        <div class="achievements-grid">
+            <div class="achievement-card">
+                <div class="achievement-icon">🧘</div>
+                <div class="achievement-title">Buddhist Studies Scholar</div>
+                <div class="achievement-desc">Currently pursuing BA in Buddhist Studies while living as a digital nomad in Thailand for 7 years. Gives me an edge in remaining calm, thinking rationally and analytically, and solving problems under pressure</div>
+            </div>
+            <div class="achievement-card">
+                <div class="achievement-icon">🌏</div>
+                <div class="achievement-title">Cross-Cultural Specialist</div>
+                <div class="achievement-desc">American living in Thailand, teaching Thai/Chinese students, bridging Eastern and Western communication styles</div>
+            </div>
+            <div class="achievement-card">
+                <div class="achievement-icon">⚡</div>
+                <div class="achievement-title">Remote Work Pioneer</div>
+                <div class="achievement-desc">Master of timezone management, working with US companies while maintaining Asian lifestyle and philosophical studies</div>
+            </div>
+            <div class="achievement-card">
+                <div class="achievement-icon">🎯</div>
+                <div class="achievement-title">Multi-Industry Translator</div>
+                <div class="achievement-desc">Successfully bridges traditional education, cutting-edge technology, and spiritual wisdom - translating complex concepts across completely different domains and worldviews</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section fade-in">
+        <h2 class="section-title">Skills & Expertise</h2>
+        <div class="skills-grid">
+            <div class="skill-category">
+                <h3>Technical Skills</h3>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>Teaching & Training</span>
+                        <span>100%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 100%;"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>Cross-Cultural Communication</span>
+                        <span>95%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 95%;"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>Public Speaking</span>
+                        <span>95%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 95%;"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>AI & Automation</span>
+                        <span>90%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 90%;"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3>Digital & Creative</h3>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>Social Media Management</span>
+                        <span>85%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 85%;"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>Digital Marketing</span>
+                        <span>85%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 85%;"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>ChatBot Development</span>
+                        <span>80%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 80%;"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>HTML/CSS</span>
+                        <span>70%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 70%;"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>Content Creation</span>
+                        <span>65%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 65%;"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3>Languages & Interests</h3>
+                <div style="margin-bottom: 1.5rem;">
+                    <h4 style="color: #00ff88; margin-bottom: 1rem;">Languages</h4>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                        <span>English</span>
+                        <span style="color: #00ff88;">Native</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between;">
+                        <span>Thai</span>
+                        <span style="color: #0066ff;">Conversational</span>
+                    </div>
+                </div>
+                <div>
+                    <h4 style="color: #00ff88; margin-bottom: 1rem;">Interests</h4>
+                    <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                        <span style="background: rgba(0, 255, 136, 0.1); padding: 0.3rem 0.6rem; border-radius: 15px; font-size: 0.9rem;">⛓️ Web3 Technologies</span>
+                        <span style="background: rgba(0, 255, 136, 0.1); padding: 0.3rem 0.6rem; border-radius: 15px; font-size: 0.9rem;">🤖 AI & Automation</span>
+                        <span style="background: rgba(0, 255, 136, 0.1); padding: 0.3rem 0.6rem; border-radius: 15px; font-size: 0.9rem;">🧘 Meditation</span>
+                        <span style="background: rgba(0, 255, 136, 0.1); padding: 0.3rem 0.6rem; border-radius: 15px; font-size: 0.9rem;">📚 Philosophy</span>
+                        <span style="background: rgba(0, 255, 136, 0.1); padding: 0.3rem 0.6rem; border-radius: 15px; font-size: 0.9rem;">🔮 Spirituality</span>
+                        <span style="background: rgba(0, 255, 136, 0.1); padding: 0.3rem 0.6rem; border-radius: 15px; font-size: 0.9rem;">🚀 Future Tech</span>
+                        <span style="background: rgba(0, 255, 136, 0.1); padding: 0.3rem 0.6rem; border-radius: 15px; font-size: 0.9rem;">🌏 Digital Nomad</span>
+                        <span style="background: rgba(0, 255, 136, 0.1); padding: 0.3rem 0.6rem; border-radius: 15px; font-size: 0.9rem;">🏢 Cultural Exploration</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="section fade-in">
+        <h2 class="section-title">Professional Experience</h2>
+        <div class="experience-timeline">
+            <div class="experience-item">
+                <div class="job-title">Social Media Manager, Content Creator & AI Developer</div>
+                <div class="company">Rocky Mountain Chocolate Factory</div>
+                <div class="date-location">2025 - Present | Remote from Thailand</div>
+                <div class="job-description">
+                    <ul>
+                        <li>Manage Instagram and Facebook accounts for artisan chocolate shop in Ashland, Oregon</li>
+                        <li>Create engaging food photography and marketing content showcasing handcrafted chocolates</li>
+                        <li>Utilize AI tools to streamline content creation and maintain consistent brand messaging</li>
+                        <li>Developed custom chatbot prototype for customer service automation</li>
+                        <li>Collaborate remotely with Oregon-based team on social media strategy</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <div class="job-title">English as Second Language Teacher & Digital Education Specialist</div>
+                <div class="company">Triamsatit Suksa School & Palfish</div>
+                <div class="date-location">2018 - 2024 | Bangkok, Thailand & Online</div>
+                <div class="job-description">
+                    <ul>
+                        <li>Taught ESL to 100+ Thai and Chinese students weekly (ages 5-18), boosting retention 30%</li>
+                        <li>Specialized in cross-cultural communication with Thai students in Bangkok and Chinese students online</li>
+                        <li>Adapted ESL curricula for diverse learning styles across Asian cultures</li>
+                        <li>Managed virtual classrooms via Zoom and Google Meet for international students</li>
+                        <li>Created engaging interactive ESL content and games for step-by-step learning</li>
+                        <li>Built strong online learning communities across cultural and linguistic barriers</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <div class="job-title">Co-Founder & Technical Developer</div>
+                <div class="company">Smart Teacher Connect Platform (Offline)</div>
+                <div class="date-location">2024-2025 | Thailand</div>
+                <div class="job-description">
+                    <ul>
+                        <li>Built teacher recruitment platform connecting educators globally using WordPress</li>
+                        <li>Implemented custom CSS and HTML solutions with AI assistance</li>
+                        <li>Designed user experience for international job board serving diverse markets</li>
+                        <li>Managed complete project lifecycle from concept to deployment</li>
+                        <li>Successfully launched platform before strategic decision to pivot and take it offline</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section id="achievements" class="section fade-in">
+        <h2 class="section-title">Key Achievements</h2>
+        <div class="achievements-grid">
+            <div class="achievement-card">
+                <div class="achievement-icon">🚀</div>
+                <div class="achievement-title">AI Innovation</div>
+                <div class="achievement-desc">Developed AI-powered content creation workflows and chatbot prototype for retail marketing</div>
+            </div>
+            <div class="achievement-card">
+                <div class="achievement-icon">🌐</div>
+                <div class="achievement-title">Global Experience</div>
+                <div class="achievement-desc">7 years living in Thailand, teaching diverse international communities</div>
+            </div>
+            <div class="achievement-card">
+                <div class="achievement-icon">⚡</div>
+                <div class="achievement-title">Tech Explorer</div>
+                <div class="achievement-desc">Passionate about emerging technologies, blockchain, and AI; actively learning new platforms and tools</div>
+            </div>
+            <div class="achievement-card">
+                <div class="achievement-icon">🎯</div>
+                <div class="achievement-title">Problem Solver</div>
+                <div class="achievement-desc">Built recruitment platform connecting teachers globally (Smart Teacher Connect - now offline)</div>
+            </div>
+        </div>
+
+        <h3 style="text-align: center; margin: 3rem 0 2rem; color: #00ff88; font-size: 2rem;">Core Strengths</h3>
+        <div class="achievements-grid">
+            <div class="achievement-card">
+                <div class="achievement-title">Analytical Pattern Recognition</div>
+                <div class="achievement-desc">Strong analytical thinking applied to content performance and user engagement patterns in social media marketing</div>
+            </div>
+            <div class="achievement-card">
+                <div class="achievement-title">Innovative AI Integration</div>
+                <div class="achievement-desc">Developed AI-driven content creation workflows and chatbot prototypes for business automation</div>
+            </div>
+            <div class="achievement-card">
+                <div class="achievement-title">Strategic Problem Solving</div>
+                <div class="achievement-desc">Applied disciplined approaches to business challenges, balancing innovation with practical implementation</div>
+            </div>
+            <div class="achievement-card">
+                <div class="achievement-title">Rapid Self-Learning</div>
+                <div class="achievement-desc">Transitioned from education to AI-driven marketing and social media management, mastering new technologies quickly</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="section fade-in">
+        <h2 class="section-title">Education</h2>
+        <div class="experience-timeline">
+            <div class="experience-item">
+                <div class="job-title">Bachelor of Arts in Buddhist Studies</div>
+                <div class="company">Mahachulalongkorn University</div>
+                <div class="date-location">2024 - Present | Bangkok, Thailand</div>
+                <div class="job-description">
+                    Part-time studies focusing on philosophy, ethics, and mindfulness practices. Demonstrates ability to balance multiple commitments while pursuing personal growth and academic excellence.
+                </div>
+            </div>
+            <div class="experience-item">
+                <div class="job-title">Bachelor's Degree in Teaching English as Second Language</div>
+                <div class="company">Self-Paced Online University</div>
+                <div class="date-location">2018 - 2021 | Completed Remotely</div>
+                <div class="job-description">
+                    Comprehensive 3-year program combining theoretical knowledge with practical hands-on experience. Essay-based curriculum with real-world application in multicultural teaching environments.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Photo Gallery -->
+    <section id="gallery" class="section fade-in">
+        <h2 class="section-title">Get to Know Me</h2>
+        <div class="photo-gallery">
+            <div class="photo-item">
+                <img src="2.jpeg" alt="Connor">
+            </div>
+            <div class="photo-item">
+                <img src="3.jpeg" alt="Connor">
+            </div>
+            <div class="photo-item">
+                <img src="4.jpeg" alt="Connor">
+            </div>
+            <div class="photo-item">
+                <img src="5.jpeg" alt="Connor">
+            </div>
+            <div class="photo-item">
+                <img src="6.jpeg" alt="Connor">
+            </div>
+            <div class="photo-item">
+                <img src="7.jpeg" alt="Connor">
+            </div>
+            <div class="photo-item">
+                <img src="8.jpeg" alt="Connor">
+            </div>
+            <div class="photo-item">
+                <img src="9.jpeg" alt="Connor">
+            </div>
+            <div class="photo-item">
+                <img src="10.jpeg" alt="Connor">
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section fade-in">
+        <h2 class="section-title">Let's Connect</h2>
+        <div class="contact-grid">
+            <div class="contact-item">
+                <svg class="contact-icon" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
+                    <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
+                </svg>
+                <div>
+                    <strong>Email</strong><br>
+                    <a href="mailto:connorsmith9333@gmail.com" style="color: #00ff88; text-decoration: none;">connorsmith9333@gmail.com</a>
+                </div>
+            </div>
+            <div class="contact-item">
+                <svg class="contact-icon" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
+                </svg>
+                <div>
+                    <strong>Location</strong><br>
+                    Bangkok, Thailand
+                </div>
+            </div>
+            <div class="contact-item">
+                <svg class="contact-icon" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z"/>
+                </svg>
+                <div>
+                    <strong>Status</strong><br>
+                    US Citizen (Remote Ready)
+                </div>
+            </div>
+            <div class="contact-item">
+                <svg class="contact-icon" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.40z"/>
+                </svg>
+                <div>
+                    <strong>Instagram</strong><br>
+                    <a href="https://instagram.com/sezno_1" style="color: #00ff88; text-decoration: none;">@sezno_1</a>
+                </div>
+            </div>
+            <div class="contact-item">
+                <svg class="contact-icon" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/>
+                </svg>
+                <div>
+                    <strong>Twitter/X</strong><br>
+                    <a href="https://twitter.com/lingoverse" style="color: #00ff88; text-decoration: none;">@lingoverse</a>
+                </div>
+            </div>
+            <div class="contact-item">
+                <svg class="contact-icon" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                </svg>
+                <div>
+                    <strong>GitHub</strong><br>
+                    <a href="https://github.com/Sezno1" style="color: #00ff88; text-decoration: none;">Sezno1</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 Connor Smith. Bridging cultures, building futures with AI.</p>
+    </footer>
+
+    <!-- JavaScript for scroll animations and interactions -->
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Animate skill bars when in view
+        const skillBars = document.querySelectorAll('.skill-progress');
+        const skillObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const bar = entry.target;
+                    const width = bar.style.width;
+                    bar.style.width = '0%';
+                    setTimeout(() => {
+                        bar.style.width = width;
+                    }, 200);
+                }
+            });
+        }, observerOptions);
+
+        skillBars.forEach(bar => {
+            skillObserver.observe(bar);
+        });
+
+        // Update navbar on scroll
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 100) {
+                navbar.style.background = 'rgba(10, 10, 10, 0.98)';
+            } else {
+                navbar.style.background = 'rgba(10, 10, 10, 0.95)';
+            }
+        });
+    </script>
+</body>
+</html>
