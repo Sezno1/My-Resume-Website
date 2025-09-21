@@ -281,7 +281,7 @@
 
         .skill-progress {
             height: 100%;
-            background: linear-gradient(90deg, #00ff88 0%, #0066ff 100%);
+            background: linear-gradient(90deg, #00ff88 0%, #0066ff 100%) !important;
             border-radius: 4px;
             transition: width 2s ease-out;
         }
@@ -716,10 +716,10 @@
                 <div class="skill-item">
                     <div class="skill-name">
                         <span>Public Speaking</span>
-                        <span>95%</span>
+                        <span>60%</span>
                     </div>
                     <div class="skill-bar">
-                        <div class="skill-progress" style="width: 95%;"></div>
+                        <div class="skill-progress" style="width: 60%;"></div>
                     </div>
                 </div>
                 <div class="skill-item">
@@ -1082,6 +1082,8 @@
                 if (entry.isIntersecting) {
                     const bar = entry.target;
                     const width = bar.style.width;
+                    // Ensure the bar has the proper background before animation
+                    bar.style.background = 'linear-gradient(90deg, #00ff88 0%, #0066ff 100%)';
                     bar.style.width = '0%';
                     setTimeout(() => {
                         bar.style.width = width;
