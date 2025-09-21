@@ -490,34 +490,255 @@
         }
 
 
+        /* Mobile Navigation */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: #ffffff;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
         /* Responsive Design */
         @media (max-width: 768px) {
+            .nav-container {
+                padding: 0 1rem;
+            }
+
             .nav-menu {
                 display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: rgba(10, 10, 10, 0.98);
+                flex-direction: column;
+                padding: 1rem 0;
+                border-top: 1px solid rgba(0, 255, 136, 0.2);
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero {
+                padding: 8rem 1rem 4rem;
+                min-height: 90vh;
             }
 
             .hero h1 {
-                font-size: 2.5rem;
+                font-size: 2rem;
+                line-height: 1.2;
             }
 
             .hero-subtitle {
-                font-size: 1.2rem;
+                font-size: 1rem;
+                line-height: 1.4;
+            }
+
+            .hero-description {
+                font-size: 0.9rem;
+                padding: 0 1rem;
+            }
+
+            .hero-image {
+                width: 150px;
+                height: 150px;
+                margin-bottom: 1.5rem;
             }
 
             .section {
-                padding-left: 1rem;
-                padding-right: 1rem;
+                padding: 3rem 1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+                margin-bottom: 2rem;
             }
 
             .cta-buttons {
                 flex-direction: column;
                 align-items: center;
+                gap: 0.75rem;
             }
 
+            .btn {
+                width: 200px;
+                text-align: center;
+            }
+
+            /* Skills Grid Mobile */
+            .skills-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .skill-category {
+                padding: 1.5rem;
+            }
+
+            /* Achievements Grid Mobile */
+            .achievements-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .achievement-card {
+                padding: 1.5rem;
+                text-align: center;
+            }
+
+            .achievement-icon {
+                font-size: 2.5rem;
+            }
+
+            .achievement-title {
+                font-size: 1.1rem;
+            }
+
+            .achievement-desc {
+                font-size: 0.9rem;
+            }
+
+            /* Experience Timeline Mobile */
             .experience-timeline {
-                padding-left: 1rem;
+                padding-left: 0;
             }
 
+            .experience-timeline::before {
+                display: none;
+            }
+
+            .experience-item {
+                margin-left: 0;
+                border-left: 4px solid #00ff88;
+                border-top: none;
+            }
+
+            .experience-item::before {
+                display: none;
+            }
+
+            .job-title {
+                font-size: 1.1rem;
+            }
+
+            .company {
+                font-size: 1rem;
+            }
+
+            .date-location {
+                font-size: 0.85rem;
+            }
+
+            .job-description {
+                font-size: 0.9rem;
+            }
+
+            /* Contact Grid Mobile */
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .contact-item {
+                padding: 1rem;
+                flex-direction: column;
+                text-align: center;
+                gap: 0.5rem;
+            }
+
+            .contact-icon {
+                margin-right: 0;
+                margin-bottom: 0.5rem;
+            }
+
+            /* Photo Gallery Mobile */
+            .photo-gallery {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .photo-item {
+                aspect-ratio: 16/12;
+            }
+
+            /* Navigation fixes */
+            .logo {
+                font-size: 1.2rem;
+            }
+
+            /* Footer */
+            .footer {
+                padding: 1.5rem 1rem;
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Tablet specific adjustments */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .achievements-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .photo-gallery {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .contact-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .section {
+                padding-left: 2rem;
+                padding-right: 2rem;
+            }
+        }
+
+        /* Small mobile devices */
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .hero-subtitle {
+                font-size: 0.9rem;
+            }
+
+            .hero-description {
+                font-size: 0.85rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .achievement-card {
+                padding: 1rem;
+            }
+
+            .experience-item {
+                padding: 1rem;
+            }
+
+            .skill-category {
+                padding: 1rem;
+            }
+
+            .btn {
+                width: 180px;
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
         }
 
         /* Scroll animations */
@@ -538,7 +759,7 @@
     <nav class="navbar">
         <div class="nav-container">
             <div class="logo">Connor Smith</div>
-            <ul class="nav-menu">
+            <ul class="nav-menu" id="navMenu">
                 <li><a href="#home" class="nav-link">Home</a></li>
                 <li><a href="#about" class="nav-link">About</a></li>
                 <li><a href="#skills" class="nav-link">Skills</a></li>
@@ -547,6 +768,7 @@
                 <li><a href="#gallery" class="nav-link">Gallery</a></li>
                 <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
         </div>
     </nav>
 
@@ -1033,6 +1255,31 @@
                 navbar.style.background = 'rgba(10, 10, 10, 0.98)';
             } else {
                 navbar.style.background = 'rgba(10, 10, 10, 0.95)';
+            }
+        });
+
+        // Mobile menu functionality
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navMenu = document.getElementById('navMenu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            mobileMenuBtn.textContent = navMenu.classList.contains('active') ? '✕' : '☰';
+        });
+
+        // Close mobile menu when clicking on nav links
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                mobileMenuBtn.textContent = '☰';
+            });
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.nav-container')) {
+                navMenu.classList.remove('active');
+                mobileMenuBtn.textContent = '☰';
             }
         });
 
